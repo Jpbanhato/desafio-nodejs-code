@@ -4,4 +4,5 @@ const Depto = mongoose.model('Depto', {
     name: String
 });
 
-module.exports = Depto;
+// module.exports = Depto;
+export default Depto;

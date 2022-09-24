@@ -1,7 +1,9 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
-import router from "../routes/routes";
+import routerDepto from "./routesDepto.js";
+import routerRole from "./routesRole.js";
+import routerMember from "./routesMember.js";
 
 const app = express();
 
@@ -12,14 +14,19 @@ app.use(
   })
 );
 
-app.use('/deptos', router);
+app.use('/deptos', routerDepto);
+app.use('/roles', routerRole);
+app.use('/members', routerMember);
+
+// const date = new Date();
+// console.log(date);
 
 const DB_USER = process.env.DB_USER; 
 const DB_PASSWORD = process.env.DB_PASSWORD;
 
 mongoose
   .connect(
-    `mongodb+srv://${DB_USER}:${DB_PASSWORD}@apicluster.zu42wmu.mongodb.net/?retryWrites=true&w=majority`,
+    `mongodb+srv://user:user@cluster0.nyazlgb.mongodb.net/?retryWrites=true&w=majority`,
     // {
     //   useNewUrlParser: true,
     //   useUnifiedTopology: true,
